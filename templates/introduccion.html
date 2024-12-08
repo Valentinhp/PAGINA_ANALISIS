@@ -1,0 +1,84 @@
+<!-- templates/introduccion.html -->
+{% extends "base.html" %}
+
+{% block title %}Introducción - Informe de Análisis de Mercados Internacionales{% endblock %}
+
+{% block content %}
+<!-- Introducción con Imagen Destacada -->
+<section class="mb-5">
+    <div class="row align-items-center">
+        <!-- Imagen Representativa -->
+        <div class="col-md-6 mb-4 mb-md-0">
+            <img src="/static/images/introduccion.webp" alt="Introducción al Informe" class="img-fluid rounded shadow">
+        </div>
+        <!-- Texto de Introducción -->
+        <div class="col-md-6">
+            <h2 class="mb-3">Introducción</h2>
+            <p>
+                En un entorno globalizado, las empresas inversionistas requieren información clara y accionable para identificar mercados con alto potencial. Ya sea por su elevado poder adquisitivo o por las oportunidades de expansión que ofrecen países con diferentes estructuras de costos, es esencial contar con datos precisos y análisis profundos que orienten decisiones estratégicas.
+            </p>
+            <p>
+                Este informe integra técnicas avanzadas de visualización de datos y análisis estadístico para proporcionar una visión integral de los mercados internacionales. Utilizando índices como el costo de vida, renta, canasta básica y poder adquisitivo, buscamos revelar áreas de oportunidad que permitan tanto la introducción de bienes y servicios de lujo en mercados premium como la expansión eficiente en países con costos moderados.
+            </p>
+            <a href="/" class="btn btn-primary mt-3">Volver al Inicio</a>
+        </div>
+    </div>
+</section>
+
+<!-- Objetivos del Informe -->
+<section class="mb-5">
+    <h3 class="mb-4 text-center">Objetivos del Informe</h3>
+    <div class="row g-4 justify-content-center">
+        <!-- Objetivo 1 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-flag-fill card-icon text-success mb-3"></i>
+                    <h5 class="card-title">1. Identificar Mercados Premium</h5>
+                    <p class="card-text">Encontrar países con altos índices de costo de vida y poder adquisitivo, adecuados para la venta de productos de lujo.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Objetivo 2 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-graph-up-arrow card-icon text-warning mb-3"></i>
+                    <h5 class="card-title">2. Detectar Mercados con Costos Moderados</h5>
+                    <p class="card-text">Hallazgos de países cuyo costo de vida y renta estén cerca de la media global, facilitando la expansión operativa.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Objetivo 3 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <i class="bi bi-lightbulb-fill card-icon text-info mb-3"></i>
+                    <h5 class="card-title">3. Proponer Estrategias Segmentadas</h5>
+                    <p class="card-text">Ajustar la mezcla de productos, precios y cadenas de suministro según las condiciones locales para maximizar beneficios y competitividad.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Metodología -->
+<section class="mb-5">
+    <h3 class="mb-4 text-center">Metodología</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                Para llevar a cabo este análisis, se siguió un enfoque estructurado que incluye la selección y preparación de datos provenientes de fuentes confiables, la aplicación de técnicas de limpieza y transformación, y la utilización de herramientas avanzadas de visualización de datos. Cada paso está diseñado para asegurar la precisión y relevancia de los resultados obtenidos.
+            </p>
+            <p>
+                Además, se emplearon técnicas estadísticas para interpretar los datos y generar gráficos que faciliten la comprensión de las tendencias y patrones identificados. Este enfoque permite no solo identificar oportunidades, sino también proporcionar recomendaciones prácticas y accionables para la toma de decisiones empresariales.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Conclusión de la Introducción -->
+<section class="text-center">
+    <a href="/problema" class="btn btn-outline-primary btn-lg">Siguiente: Definición del Problema</a>
+</section>
+{% endblock %}

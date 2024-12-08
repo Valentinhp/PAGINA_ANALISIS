@@ -1,0 +1,490 @@
+<!-- templates/anexos.html -->
+{% extends "base.html" %}
+
+{% block title %}Anexos - Informe de Análisis de Mercados Internacionales{% endblock %}
+
+{% block content %}
+<!-- Anexos -->
+<section class="mb-5">
+    <h2 class="mb-4 text-center">Anexos</h2>
+    
+    <!-- Descripción General -->
+    <div class="mb-4">
+        <p class="lead text-center">
+            En esta sección se presentan los códigos utilizados para generar los gráficos incluidos en el informe. Cada código está detallado para facilitar su comprensión y replicación.
+        </p>
+    </div>
+    
+    <!-- Gráfico 1(r): Relación entre Índices de Costo de Vida, Renta y Poder Adquisitivo (Burbuja) -->
+    <div class="mb-5">
+        <h3 class="mb-3"><i class="bi bi-bar-chart-fill me-2 text-primary"></i>Gráfico 1(r): Relación entre Índices de Costo de Vida, Renta y Poder Adquisitivo (Burbuja)</h3>
+        <p>
+            Este gráfico de burbujas muestra la relación entre los índices de costo de vida, renta y poder adquisitivo. El tamaño de las burbujas representa el índice de poder de compra local, destacando los países con mayor capacidad adquisitiva.
+        </p>
+        <pre class="bg-light p-3 rounded overflow-auto">
+<code class="language-r">
+# Importar las librerías necesarias para la visualización de datos
+library(ggplot2)
+library(ggrepel)
+
+# Especificar la ruta del archivo CSV que contiene los datos
+file_path <- "C:\\Users\\Valen\\Downloads\\Cost_of_Living_Index_by_Country_2024.csv"
+
+# Cargar el archivo CSV en un marco de datos
+data <- read.csv(file_path)
+
+# Filtrar los países destacados según criterios específicos
+highlighted_countries <- subset(data, 
+                                Cost.of.Living.Index > 80 | # Índices de costo de vida altos
+                                Rent.Index > 50 | # Índices de renta altos
+                                Local.Purchasing.Power.Index > 100) # Poder de compra local alto
+
+# Crear un gráfico de burbujas con etiquetas para países destacados
+bubble_plot <- ggplot(data, aes(x = Cost.of.Living.Index, 
+                                y = Rent.Index, 
+                                size = Local.Purchasing.Power.Index)) +
+  # Dibujar burbujas con transparencia
+  geom_point(alpha = 0.7, color = "#69b3a2") +
+  # Agregar etiquetas para los países destacados
+  geom_text_repel(data = highlighted_countries, 
+                  aes(label = Country), 
+                  size = 3, 
+                  box.padding = 0.4, 
+                  point.padding = 0.6, 
+                  max.overlaps = 100, 
+                  segment.color = "gray") +
+  # Agregar línea horizontal de referencia
+  geom_hline(yintercept = 40, 
+             linetype = "dashed", 
+             color = "gray") +
+  # Agregar línea vertical de referencia
+  geom_vline(xintercept = 50, 
+             linetype = "dashed", 
+             color = "gray") +
+  # Añadir título, subtítulo y etiquetas de ejes
+  labs(
+    title = "Relación entre Índices de Costo de Vida, Renta\n y Poder de Compra Local",
+    subtitle = "El tamaño de la burbuja representa el índice de poder de compra local",
+    x = "Cost of Living Index", # Etiqueta del eje X
+    y = "Rent Index", # Etiqueta del eje Y
+    size = "Local Purchasing Power Index" # Leyenda del tamaño de las burbujas
+  ) +
+  # Aplicar un tema visual minimalista
+  theme_minimal() +
+  # Ajustar elementos visuales del gráfico
+  theme(
+    plot.title = element_text(hjust = 0.5, 
+                              face = "bold", 
+                              size = 16, 
+                              margin = margin(b = 10)), # Centrar y resaltar el título
+    plot.subtitle = element_text(hjust = 0.5, 
+                                 size = 12, 
+                                 margin = margin(b = 10)), # Centrar el subtítulo
+    axis.text.x = element_text(size = 10), # Tamaño del texto del eje X
+    axis.text.y = element_text(size = 10), # Tamaño del texto del eje Y
+    legend.title = element_text(size = 12, 
+                                face = "bold"), # Resaltar el título de la leyenda
+    legend.text = element_text(size = 10) # Ajustar tamaño del texto de la leyenda
+  )
+
+# Mostrar el gráfico en la salida
+print(bubble_plot)
+
+# Guardar el gráfico en un archivo de imagen con alta resolución
+ggsave("grafico_burbujas_destacados_solucionado.png", 
+       plot = bubble_plot, 
+       width = 16, # Ancho del archivo de imagen
+       height = 10, # Altura del archivo de imagen
+       dpi = 300) # Resolución del archivo
+</code>
+        </pre>
+    </div>
+    
+    <!-- Gráfico 2: Índice de Renta por Categorías de Costo de Vida (Violin Plot) -->
+    <div class="mb-5">
+        <h3 class="mb-3"><i class="bi bi-bar-chart-fill me-2 text-success"></i>Gráfico 2: Índice de Renta por Categorías de Costo de Vida (Violin Plot)</h3>
+        <p>
+            Este gráfico de violines analiza la distribución del índice de renta en diferentes categorías de costo de vida, permitiendo visualizar la variabilidad y la tendencia central de los datos.
+        </p>
+        <pre class="bg-light p-3 rounded overflow-auto">
+<code class="language-r">
+# Importar las librerías necesarias para visualización y manipulación de datos
+library(ggplot2)
+library(dplyr)
+
+# Especificar la ruta del archivo CSV con los datos
+file_path <- "C:\\Users\\Valen\\Downloads\\Cost_of_Living_Index_by_Country_2024.csv"
+
+# Leer el archivo CSV y cargar los datos en un marco de datos
+data <- read.csv(file_path)
+
+# Clasificar los países en categorías basadas en el índice de costo de vida
+data <- data %>%
+  mutate(Cost_of_Living_Category = case_when(
+    Cost.of.Living.Index >= 80 ~ "Alto", # Categoría alta para índices >= 80
+    Cost.of.Living.Index >= 50 & Cost.of.Living.Index < 80 ~ "Medio", # Categoría media para índices entre 50 y 80
+    TRUE ~ "Bajo" # Categoría baja para índices menores a 50
+  ))
+
+# Crear un gráfico de violín para analizar la distribución de los índices de renta
+violin_plot <- ggplot(data, aes(x = Cost_of_Living_Category, y = Rent.Index, fill = Cost_of_Living_Category)) +
+  geom_violin(trim = TRUE) + # Generar un gráfico de violín ajustado
+  labs(
+    title = "Análisis del Índice de Renta por Categorías de Costo de Vida", # Título del gráfico
+    x = "Categoría del Índice de Costo de Vida", # Etiqueta del eje X
+    y = "Índice de Renta" # Etiqueta del eje Y
+  ) +
+  theme_minimal() + # Aplicar un estilo minimalista al gráfico
+  theme(
+    legend.position = "none", # Ocultar la leyenda
+    plot.title = element_text(hjust = 0.5, face = "bold") # Centrar y resaltar el título
+  ) +
+  scale_fill_manual(values = c("Alto" = "#FF5733", "Medio" = "#33FF57", "Bajo" = "#3357FF")) # Aplicar colores personalizados a las categorías
+
+# Mostrar el gráfico generado en la salida
+print(violin_plot)
+
+# Guardar el gráfico como un archivo de imagen en formato PNG
+ggsave("grafico_violines.png", plot = violin_plot, width = 10, height = 6)
+</code>
+        </pre>
+    </div>
+    
+    <!-- Gráfico 4: Distribución del Índice de Costo de Vida (Histograma) -->
+    <div class="mb-5">
+        <h3 class="mb-3"><i class="bi bi-bar-chart-fill me-2 text-warning"></i>Gráfico 4: Distribución del Índice de Costo de Vida (Histograma)</h3>
+        <p>
+            Este histograma visualiza la distribución del índice de costo de vida en los países analizados, proporcionando una perspectiva clara de cómo se distribuyen los valores a lo largo del rango.
+        </p>
+        <pre class="bg-light p-3 rounded overflow-auto">
+<code class="language-python">
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Especificar la ruta al archivo CSV que contiene los datos
+file_path = r'C:\Users\Valen\Downloads\Cost_of_Living_Index_by_Country_2024.csv'
+
+# Cargar el archivo CSV en un DataFrame para análisis
+data = pd.read_csv(file_path)
+
+# Verificar la presencia de la columna clave antes de proceder con el análisis
+if 'Cost of Living Index' in data.columns:
+    # Configurar el tamaño del lienzo para el gráfico
+    plt.figure(figsize=(12, 6))
+    
+    # Construir un histograma para visualizar la distribución del índice
+    plt.hist(
+        data['Cost of Living Index'], 
+        bins=30,  # Número de intervalos para agrupar los datos
+        color='skyblue',  # Color de las barras
+        edgecolor='black',  # Color de los bordes de las barras
+        alpha=0.7  # Nivel de transparencia de las barras
+    )
+    # Incorporar elementos descriptivos al gráfico
+    plt.title('Distribución del Índice de Costo de Vida (2024)', fontsize=16)  # Título del gráfico
+    plt.xlabel('Índice de Costo de Vida', fontsize=14)  # Etiqueta del eje X
+    plt.ylabel('Número de Países', fontsize=14)  # Etiqueta del eje Y
+    
+    # Calcular la media del índice y agregar una línea de referencia
+    media = data['Cost of Living Index'].mean()
+    plt.axvline(
+        media, 
+        color='red', 
+        linestyle='dashed', 
+        linewidth=1.5, 
+        label=f'Media: {media:.2f}' 
+    )
+    # Agregar leyenda explicativa al gráfico
+    plt.legend()
+    
+    # Incluir una cuadrícula para facilitar la interpretación del gráfico
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    # Optimizar la disposición de los elementos del gráfico
+    plt.tight_layout()
+    # Mostrar el gráfico resultante
+    plt.show()
+else:
+    # Mensaje informativo en caso de que la columna clave no esté disponible
+    print("La columna 'Cost of Living Index' no se encuentra en los datos proporcionados.")
+</code>
+        </pre>
+    </div>
+    
+    <!-- Gráfico 5: Relación entre Índice de Costo de Vida e Índice de Renta (líneas) -->
+    <div class="mb-5">
+        <h3 class="mb-3"><i class="bi bi-bar-chart-fill me-2 text-info"></i>Gráfico 5: Relación entre Índice de Costo de Vida e Índice de Renta (líneas)</h3>
+        <p>
+            Este gráfico de dispersión con líneas muestra la relación entre el índice de costo de vida y el índice de renta, permitiendo identificar tendencias y correlaciones entre ambos índices.
+        </p>
+        <pre class="bg-light p-3 rounded overflow-auto">
+<code class="language-python">
+import pandas as pd
+import matplotlib.pyplot as plt
+from adjustText import adjust_text  # Librería para evitar superposición de etiquetas
+
+# Especificar la ruta del archivo CSV que contiene los datos
+file_path = r'C:\Users\Valen\Downloads\Cost_of_Living_Index_by_Country_2024.csv'
+
+# Cargar el archivo CSV en un DataFrame
+data = pd.read_csv(file_path)
+
+# Verificar que las columnas requeridas estén presentes en los datos
+required_columns = ['Cost of Living Index', 'Rent Index', 'Country']
+if all(column in data.columns for column in required_columns):
+    # Configurar el tamaño del gráfico
+    plt.figure(figsize=(12, 8))
+    
+    # Crear un gráfico de dispersión para analizar la relación entre índices
+    scatter = plt.scatter(
+        data['Cost of Living Index'],  # Valores en el eje X
+        data['Rent Index'],  # Valores en el eje Y
+        color='dodgerblue',  # Color de los puntos
+        edgecolor='black',  # Borde de los puntos
+        alpha=0.7,  # Transparencia
+        s=60  # Tamaño de los puntos
+    )
+    
+    # Añadir título y etiquetas a los ejes
+    plt.title('Relación entre Índice de Costo de Vida y Índice de Renta (2024)', 
+              fontsize=16, fontweight='bold')  # Título del gráfico
+    plt.xlabel('Índice de Costo de Vida', fontsize=14)  # Etiqueta del eje X
+    plt.ylabel('Índice de Renta', fontsize=14)  # Etiqueta del eje Y
+    
+    # Calcular y añadir líneas de referencia en base a las medias
+    mean_x = data['Cost of Living Index'].mean()  # Media del índice de costo de vida
+    mean_y = data['Rent Index'].mean()  # Media del índice de renta
+    plt.axvline(mean_x, color='red', linestyle='--', linewidth=1.5, 
+                label=f'Media Costo de Vida: {mean_x:.2f}')  # Línea de referencia vertical
+    plt.axhline(mean_y, color='green', linestyle='--', linewidth=1.5, 
+                label=f'Media Renta: {mean_y:.2f}')  # Línea de referencia horizontal
+    
+    # Añadir leyenda al gráfico
+    plt.legend(fontsize=12)
+    
+    # Incluir cuadrícula para facilitar la interpretación
+    plt.grid(True, linestyle='--', alpha=0.6)
+    
+    # Filtrar y etiquetar países cuyos índices están por encima de las medias
+    subset = data[(data['Cost of Living Index'] > mean_x) & (data['Rent Index'] > mean_y)]
+    texts = [
+        plt.text(row['Cost of Living Index'], row['Rent Index'], row['Country'], fontsize=9) 
+        for _, row in subset.iterrows()
+    ]
+    
+    # Ajustar la posición de las etiquetas para evitar superposiciones
+    adjust_text(texts, arrowprops=dict(arrowstyle="->", color='gray', lw=0.5))
+    
+    # Optimizar el diseño del gráfico
+    plt.tight_layout()
+    
+    # Mostrar el gráfico resultante
+    plt.show()
+else:
+    # Mensaje de error si faltan columnas necesarias
+    print("No se encuentran las columnas necesarias ('Cost of Living Index', 'Rent Index', 'Country') en los datos proporcionados.")
+</code>
+        </pre>
+    </div>
+    
+    <!-- Gráfico 6: Boxplot de Costo de Vida y Renta -->
+    <div class="mb-5">
+        <h3 class="mb-3"><i class="bi bi-bar-chart-fill me-2 text-secondary"></i>Gráfico 6: Boxplot de Costo de Vida y Renta</h3>
+        <p>
+            Este boxplot compara la variabilidad entre el índice de costo de vida y el índice de renta, proporcionando una visión clara de la distribución y los posibles outliers en cada categoría.
+        </p>
+        <pre class="bg-light p-3 rounded overflow-auto">
+<code class="language-python">
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Especificar la ruta del archivo CSV que contiene los datos
+file_path = r'C:\Users\Valen\Downloads\Cost_of_Living_Index_by_Country_2024.csv'
+
+# Cargar los datos del archivo CSV en un DataFrame
+data = pd.read_csv(file_path)
+
+# Verificar que las columnas necesarias existan en el conjunto de datos
+required_columns = ['Cost of Living Index', 'Rent Index']
+if all(column in data.columns for column in required_columns):
+    # Configurar el tamaño del gráfico para facilitar la visualización
+    plt.figure(figsize=(10, 6))
+    
+    # Crear un boxplot para comparar la variabilidad entre índices
+    box = plt.boxplot(
+        [data['Cost of Living Index'], data['Rent Index']],  # Datos a comparar
+        labels=['Costo de Vida', 'Renta'],  # Etiquetas para los grupos de datos
+        patch_artist=True,  # Activar el relleno de las cajas
+        boxprops=dict(facecolor='skyblue', color='black'),  # Estilo de las cajas
+        medianprops=dict(color='red', linewidth=2),  # Estilo de la mediana
+        whiskerprops=dict(color='black'),  # Estilo de los bigotes
+        capprops=dict(color='black'),  # Estilo de las tapas de los bigotes
+        flierprops=dict(  # Estilo de los valores atípicos
+            markerfacecolor='gray', 
+            marker='o', 
+            markersize=5, 
+            linestyle='none', 
+            markeredgecolor='black'
+        )
+    )
+    
+    # Añadir título y etiquetas a los ejes para mayor claridad
+    plt.title('Comparación de la Variabilidad entre el Índice de Costo de Vida y el Índice de Renta', 
+              fontsize=14, fontweight='bold')  # Título del gráfico
+    plt.ylabel('Valores del Índice', fontsize=12)  # Etiqueta del eje Y
+    plt.xticks(fontsize=12)  # Ajustar tamaño de las etiquetas en el eje X
+    plt.yticks(fontsize=12)  # Ajustar tamaño de las etiquetas en el eje Y
+    
+    # Incluir cuadrícula para facilitar la interpretación del gráfico
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    
+    # Ajustar el diseño para evitar superposiciones
+    plt.tight_layout()
+    
+    # Mostrar el gráfico resultante
+    plt.show()
+else:
+    # Mensaje informativo si faltan columnas requeridas en el conjunto de datos
+    print("No se encuentran las columnas necesarias ('Cost of Living Index', 'Rent Index') en los datos proporcionados.")
+</code>
+        </pre>
+    </div>
+    
+    <!-- Gráfico 8: Comparación de Índices entre Países con Mayor Costo de Vida (Líneas Múltiples) -->
+    <div class="mb-5">
+        <h3 class="mb-3"><i class="bi bi-bar-chart-fill me-2 text-dark"></i>Gráfico 8: Comparación de Índices entre Países con Mayor Costo de Vida (Líneas Múltiples)</h3>
+        <p>
+            Este gráfico de líneas compara los índices de costo de vida, renta y canasta básica entre los cinco países con mayor costo de vida, permitiendo una comparación directa de sus desempeños en diferentes indicadores.
+        </p>
+        <pre class="bg-light p-3 rounded overflow-auto">
+<code class="language-r">
+# Importar las librerías necesarias para la visualización y manipulación de datos
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+# Especificar la ruta del archivo CSV que contiene los datos
+file_path <- "C:\\Users\\Valen\\Downloads\\Cost_of_Living_Index_by_Country_2024.csv"
+
+# Cargar el archivo CSV en un marco de datos
+data <- read.csv(file_path)
+
+# Filtrar los 5 países con mayor índice de costo de vida
+top_5_countries <- data %>%
+  arrange(desc(Cost.of.Living.Index)) %>% # Ordenar por índice de costo de vida en orden descendente
+  slice(1:5) %>% # Seleccionar los primeros 5 países
+  select(Country, Cost.of.Living.Index, Rent.Index, Groceries.Index) # Filtrar columnas relevantes
+
+# Convertir los datos a formato largo para su uso en ggplot
+data_long <- top_5_countries %>%
+  pivot_longer(
+    cols = c(Cost.of.Living.Index, Rent.Index, Groceries.Index), # Columnas a transformar
+    names_to = "Index", # Nueva columna para los nombres de índices
+    values_to = "Value" # Nueva columna para los valores de índices
+  )
+
+# Asegurar que los países aparezcan en el orden correcto en el eje X
+data_long$Country <- factor(data_long$Country, levels = top_5_countries$Country)
+
+# Crear un gráfico de líneas para comparar los índices
+line_plot <- ggplot(data_long, aes(x = Country, y = Value, color = Index, group = Index)) +
+  geom_line(linewidth = 1.5) + # Agregar líneas más gruesas para mayor claridad
+  geom_point(size = 3) + # Resaltar puntos con un tamaño adecuado
+  labs(
+    title = "Comparación Índices entre los Países con Mayor Costo de Vida", # Título principal
+    subtitle = "Cost of Living Index, Rent Index y Groceries Index", # Subtítulo explicativo
+    x = "País", # Etiqueta del eje X
+    y = "Índice", # Etiqueta del eje Y
+    color = "Índice" # Título de la leyenda
+  ) +
+  theme_minimal() + # Aplicar un tema minimalista
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16), # Centrar y resaltar el título
+    plot.subtitle = element_text(hjust = 0.5, size = 14), # Centrar el subtítulo
+    axis.text.x = element_text(angle = 20, hjust = 1, size = 12), # Rotar nombres en el eje X ligeramente
+    axis.text.y = element_text(size = 12), # Ajustar tamaño del texto del eje Y
+    legend.position = "bottom" # Colocar la leyenda en la parte inferior
+  ) +
+  scale_color_manual(values = c(
+    "Cost.of.Living.Index" = "#E63946", # Color para Cost of Living Index
+    "Rent.Index" = "#457B9D", # Color para Rent Index
+    "Groceries.Index" = "#F4A261" # Color para Groceries Index
+  ))
+
+# Mostrar el gráfico en la salida
+print(line_plot)
+
+# Guardar el gráfico como un archivo de imagen en alta resolución
+ggsave(
+  "grafico_lineas_hd.png", # Nombre del archivo
+  plot = line_plot, # Objeto del gráfico a guardar
+  width = 14, # Ancho del archivo de imagen
+  height = 10, # Altura del archivo de imagen
+  dpi = 300 # Resolución en puntos por pulgada
+)
+</code>
+        </pre>
+    </div>
+    
+    <!-- Gráfico 9: Mapa de Calor (Heatmap) de Comparación de Índices por País -->
+    <div class="mb-5">
+        <h3 class="mb-3"><i class="bi bi-bar-chart-fill me-2 text-secondary"></i>Gráfico 9: Mapa de Calor (Heatmap) de Comparación de Índices por País</h3>
+        <p>
+            Este mapa de calor compara los índices de costo de vida, renta, canasta básica y poder de compra local entre los diez países con mayor costo de vida, proporcionando una visualización clara de las diferencias y similitudes entre ellos.
+        </p>
+        <pre class="bg-light p-3 rounded overflow-auto">
+<code class="language-r">
+# Importar las librerías necesarias para visualización y manipulación de datos
+library(ggplot2)
+library(reshape2)
+
+# Especificar la ruta del archivo CSV que contiene los datos
+file_path <- "C:\\Users\\Valen\\Downloads\\Cost_of_Living_Index_by_Country_2024.csv"
+
+# Leer el archivo CSV y cargarlo en un marco de datos
+data <- read.csv(file_path)
+
+# Seleccionar las columnas clave para el análisis
+selected_columns <- c("Country", "Cost.of.Living.Index", "Rent.Index", "Groceries.Index", "Local.Purchasing.Power.Index")
+heatmap_data <- data[, selected_columns]
+
+# Filtrar los 10 países con el mayor índice de costo de vida
+top_10_countries <- heatmap_data[order(-heatmap_data$Cost.of.Living.Index), ][1:10, ]
+
+# Convertir los datos al formato largo para facilitar su visualización con ggplot
+heatmap_long <- melt(top_10_countries, id.vars = "Country", 
+                     variable.name = "Index", value.name = "Value")
+# Crear un gráfico de mapa de calor utilizando ggplot
+ggplot(data = heatmap_long, aes(x = Index, y = Country, fill = Value)) +
+  # Generar el mapa de calor con celdas coloreadas
+  geom_tile(color = "white") +
+  # Aplicar un gradiente de colores para representar los valores
+  scale_fill_gradient2(
+    low = "#5E2A84",  # Color para valores bajos (morado oscuro)
+    mid = "#F7DC6F",  # Color para valores medios (amarillo claro)
+    high = "#F39C12", # Color para valores altos (naranja)
+    midpoint = mean(heatmap_long$Value, na.rm = TRUE), # Punto medio basado en la media
+    name = "Valor"  # Título de la leyenda
+  ) +
+  # Añadir título y eliminar etiquetas de los ejes
+  labs(title = "Mapa de Calor: Comparación de Índices por País",
+       x = "", y = "") +
+  # Ajustar el diseño del gráfico para mejor presentación
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1), # Rotar etiquetas del eje X
+    axis.text.y = element_text(size = 10), # Ajustar el tamaño de las etiquetas del eje Y
+    plot.title = element_text(hjust = 0.5, size = 16, face = "bold"), # Centrar y resaltar el título
+    legend.title = element_text(size = 12, face = "bold"), # Resaltar el título de la leyenda
+    legend.text = element_text(size = 10) # Ajustar el tamaño del texto de la leyenda
+  )
+</code>
+        </pre>
+    </div>
+    
+    <!-- Botones de Navegación -->
+    <section class="text-center">
+        <a href="/conclusiones" class="btn btn-outline-secondary btn-lg me-3"><i class="bi bi-arrow-left-circle me-2"></i>Anterior: Conclusiones Generales</a>
+        <a href="/referencias" class="btn btn-outline-primary btn-lg"><i class="bi bi-arrow-right-circle me-2"></i>Siguiente: Referencias</a>
+    </section>
+</section>
+{% endblock %}

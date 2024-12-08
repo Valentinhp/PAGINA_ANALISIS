@@ -1,0 +1,94 @@
+<!-- templates/problema.html -->
+{% extends "base.html" %}
+
+{% block title %}Definición del Problema - Informe de Análisis de Mercados Internacionales{% endblock %}
+
+{% block content %}
+<!-- Definición del Problema y Objetivos Empresariales -->
+<section class="mb-5">
+    <h2 class="mb-4 text-center">Definición del Problema y Objetivos Empresariales</h2>
+    
+    <!-- Área de Oportunidad a Abordar -->
+    <div class="mb-4">
+        <h3 class="mb-3"><i class="bi bi-lightbulb-fill me-2 text-warning"></i>Área de Oportunidad a Abordar</h3>
+        <p>
+            La empresa busca optimizar su portafolio de inversiones y productos en distintos mercados internacionales. Identificar dónde y cómo ingresar, ya sea con productos de alta gama en mercados premium o con estrategias de reducción de costos en mercados más moderados, es esencial para maximizar el retorno.
+        </p>
+    </div>
+    
+    <!-- Objetivos Empresariales -->
+    <div class="mb-4">
+        <h3 class="mb-3"><i class="bi bi-flag-fill me-2 text-primary"></i>Objetivos Empresariales</h3>
+        <ol class="list-group list-group-numbered">
+            <li class="list-group-item d-flex align-items-start">
+                <i class="bi bi-graph-up-arrow me-2 text-success"></i>
+                <div>
+                    <strong>Identificar Mercados Premium:</strong> Encontrar países con altos índices de costo de vida y poder adquisitivo, adecuados para la venta de productos de lujo.
+                </div>
+            </li>
+            <li class="list-group-item d-flex align-items-start">
+                <i class="bi bi-binoculars me-2 text-success"></i>
+                <div>
+                    <strong>Detectar Mercados con Costos Moderados:</strong> Hallar países cuyo costo de vida y renta estén cerca de la media global, facilitando la expansión operativa.
+                </div>
+            </li>
+            <li class="list-group-item d-flex align-items-start">
+                <i class="bi bi-lightbulb me-2 text-success"></i>
+                <div>
+                    <strong>Proponer Estrategias Segmentadas:</strong> Ajustar la mezcla de productos, precios y cadenas de suministro según las condiciones locales, buscando maximizar beneficios y competitividad.
+                </div>
+            </li>
+        </ol>
+    </div>
+    
+    <!-- KPIs Definidos -->
+    <div>
+        <h3 class="mb-3"><i class="bi bi-bar-chart-fill me-2 text-info"></i>KPIs Definidos</h3>
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Variable</th>
+                    <th scope="col">Definición</th>
+                    <th scope="col">Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cost of Living Index</td>
+                    <td>Evalúa la carestía general de la vida.</td>
+                    <td>Numérico</td>
+                </tr>
+                <tr>
+                    <td>Rent Index</td>
+                    <td>Mide el nivel del costo de la vivienda.</td>
+                    <td>Numérico</td>
+                </tr>
+                <tr>
+                    <td>Groceries Index</td>
+                    <td>Refleja el costo de bienes básicos.</td>
+                    <td>Numérico</td>
+                </tr>
+                <tr>
+                    <td>Local Purchasing Power Index</td>
+                    <td>Indica cuánto pueden adquirir los residentes con sus ingresos.</td>
+                    <td>Numérico</td>
+                </tr>
+                <tr>
+                    <td>CostoVida_Categ</td>
+                    <td>Categoría del costo de vida (Alto/Medio/Bajo)</td>
+                    <td>Categórico</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            Estos KPIs se enlazan directamente con la estrategia corporativa, permitiendo segmentar mercados y determinar dónde y cómo posicionar los productos.
+        </p>
+    </div>
+</section>
+
+<!-- Botones de Navegación -->
+<section class="text-center">
+    <a href="/introduccion" class="btn btn-outline-secondary btn-lg me-3"><i class="bi bi-arrow-left-circle me-2"></i>Anterior: Introducción</a>
+    <a href="/preparacion" class="btn btn-outline-primary btn-lg"><i class="bi bi-arrow-right-circle me-2"></i>Siguiente: Selección y Preparación de Datos</a>
+</section>
+{% endblock %}

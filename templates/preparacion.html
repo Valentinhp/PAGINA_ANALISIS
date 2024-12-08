@@ -1,0 +1,59 @@
+<!-- templates/preparacion.html -->
+{% extends "base.html" %}
+
+{% block title %}Selección y Preparación de Datos - Informe de Análisis de Mercados Internacionales{% endblock %}
+
+{% block content %}
+<!-- Selección y Preparación de Datos -->
+<section class="mb-5">
+    <h2 class="mb-4 text-center">Selección y Preparación de Datos</h2>
+    
+    <!-- Fuentes de Datos -->
+    <div class="mb-4">
+        <h3 class="mb-3"><i class="bi bi-database-fill me-2 text-primary"></i>Fuentes de Datos</h3>
+        <p>
+            La base de datos proviene de <strong>Kaggle</strong> (<a href="https://www.kaggle.com/datasets/myrios/cost-of-living-index-by-country-by-number-2024/data" target="_blank" class="text-decoration-none">Cost_of_Living_Index_by_Country_2024</a>). Incluye más de 100 países con valores estandarizados de costo de vida, renta, canasta básica, restauración y poder adquisitivo.
+        </p>
+    </div>
+    
+    <!-- Limpieza y Calidad de Datos -->
+    <div class="mb-4">
+        <h3 class="mb-3"><i class="bi bi-bug-fill me-2 text-warning"></i>Limpieza y Calidad de Datos</h3>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <i class="bi bi-check-circle-fill me-2 text-success"></i><strong>Eliminación de valores faltantes y revisión de inconsistencias:</strong> Se eliminaron registros con datos incompletos y se corrigieron discrepancias en los valores.
+            </li>
+            <li class="list-group-item">
+                <i class="bi bi-check-circle-fill me-2 text-success"></i><strong>Estandarización de nombres de países:</strong> Se homogenizaron los nombres de los países para evitar duplicidades y asegurar la consistencia en el análisis.
+            </li>
+            <li class="list-group-item">
+                <i class="bi bi-check-circle-fill me-2 text-success"></i><strong>Aseguramiento de datos limpios y comparables:</strong> Se verificó la integridad de los datos, asegurando que todos los valores fueran precisos y comparables entre sí.
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Transformación de Datos -->
+    <div>
+        <h3 class="mb-3"><i class="bi bi-arrow-repeat me-2 text-info"></i>Transformación de Datos</h3>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <i class="bi bi-diagram-3-fill me-2 text-secondary"></i><strong>Creación de una variable categórica segmentando países según su costo de vida:</strong>
+                <ul class="mt-2">
+                    <li><strong>Alto:</strong> >70</li>
+                    <li><strong>Medio:</strong> 40-70</li>
+                    <li><strong>Bajo:</strong> <40</li>
+                </ul>
+            </li>
+            <li class="list-group-item">
+                <i class="bi bi-calculator-fill me-2 text-secondary"></i><strong>Cálculo de promedios y referencias a la media global:</strong> Se calcularon promedios para cada índice y se compararon con la media global para contextualizar los hallazgos.
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- Botones de Navegación -->
+<section class="text-center">
+    <a href="/problema" class="btn btn-outline-secondary btn-lg me-3"><i class="bi bi-arrow-left-circle me-2"></i>Anterior: Definición del Problema</a>
+    <a href="/diccionario" class="btn btn-outline-primary btn-lg"><i class="bi bi-arrow-right-circle me-2"></i>Siguiente: Diccionario de Datos</a>
+</section>
+{% endblock %}

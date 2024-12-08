@@ -1,0 +1,97 @@
+<!-- templates/diccionario.html -->
+{% extends "base.html" %}
+
+{% block title %}Diccionario de Datos - Informe de Análisis de Mercados Internacionales{% endblock %}
+
+{% block content %}
+<!-- Diccionario de Datos -->
+<section class="mb-5">
+    <h2 class="mb-4 text-center">Diccionario de Datos</h2>
+    
+    <!-- Introducción al Diccionario de Datos -->
+    <div class="mb-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-journal-text me-2 text-secondary"></i>Propósito y Utilidad del Diccionario de Datos</h5>
+                <p class="card-text">
+                    El <strong>Diccionario de Datos</strong> es una herramienta esencial en cualquier análisis de datos. Su principal objetivo es proporcionar una referencia clara y concisa de todas las variables utilizadas en el informe. Al definir cada variable, su significado y su tipo de dato, se garantiza una comprensión uniforme tanto para los analistas como para los stakeholders involucrados.
+                </p>
+                <p class="card-text">
+                    <strong>Beneficios del Diccionario de Datos:</strong>
+                </p>
+                <ul>
+                    <li><strong>Claridad:</strong> Asegura que todos los involucrados entiendan exactamente qué representa cada variable.</li>
+                    <li><strong>Consistencia:</strong> Mantiene una uniformidad en el uso de términos y definiciones a lo largo del análisis.</li>
+                    <li><strong>Facilidad de Mantenimiento:</strong> Permite actualizaciones y modificaciones eficientes al tener una referencia centralizada.</li>
+                    <li><strong>Mejora en la Toma de Decisiones:</strong> Proporciona una base sólida para interpretar correctamente los resultados y conclusiones del análisis.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tabla del Diccionario de Datos -->
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Variable</th>
+                    <th scope="col">Definición</th>
+                    <th scope="col">Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Country</td>
+                    <td>Nombre del país</td>
+                    <td>Categórico</td>
+                </tr>
+                <tr>
+                    <td>Cost.of.Living.Index</td>
+                    <td>Índice de costo de vida (base global ~100)</td>
+                    <td>Numérico</td>
+                </tr>
+                <tr>
+                    <td>Rent.Index</td>
+                    <td>Índice de renta (alquiler)</td>
+                    <td>Numérico</td>
+                </tr>
+                <tr>
+                    <td>Cost.of.Living.Plus.Rent.Index</td>
+                    <td>Índice combinado costo de vida + renta</td>
+                    <td>Numérico</td>
+                </tr>
+                <tr>
+                    <td>Groceries.Index</td>
+                    <td>Índice de canasta básica</td>
+                    <td>Numérico</td>
+                </tr>
+                <tr>
+                    <td>Restaurant.Price.Index</td>
+                    <td>Índice de precios en restaurantes</td>
+                    <td>Numérico</td>
+                </tr>
+                <tr>
+                    <td>Local.Purchasing.Power.Index</td>
+                    <td>Índice de poder adquisitivo local</td>
+                    <td>Numérico</td>
+                </tr>
+                <tr>
+                    <td>CostoVida_Categ</td>
+                    <td>Categoría del costo de vida (Alto/Medio/Bajo)</td>
+                    <td>Categórico</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <p class="mt-3">
+        Este diccionario de datos es fundamental para entender las variables utilizadas en los análisis y visualizaciones presentados en este informe. Al tener una referencia clara, se facilita la interpretación correcta de los resultados y se asegura que las estrategias propuestas se basen en una comprensión precisa de los indicadores clave.
+    </p>
+</section>
+
+<!-- Botones de Navegación -->
+<section class="text-center">
+    <a href="/preparacion" class="btn btn-outline-secondary btn-lg me-3"><i class="bi bi-arrow-left-circle me-2"></i>Anterior: Selección y Preparación de Datos</a>
+    <a href="/graficos" class="btn btn-outline-primary btn-lg"><i class="bi bi-arrow-right-circle me-2"></i>Siguiente: Narración de Historias con Datos</a>
+</section>
+{% endblock %}

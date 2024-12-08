@@ -1,0 +1,385 @@
+<!-- templates/implementacion.html -->
+{% extends "base.html" %}
+
+{% block title %}Narración de Historias con Datos - Informe de Análisis de Mercados Internacionales{% endblock %}
+
+{% block content %}
+<!-- Narración de Historias con Datos -->
+<section class="mb-5">
+    <h2 class="mb-4 text-center">Narración de Historias con Datos</h2>
+    
+    <p>
+        A continuación, se presentan las visualizaciones. Cada una incluye interpretación estadística, conclusiones y recomendaciones prácticas para la toma de decisiones.
+    </p>
+    
+    <!-- Gráfico 1: Relación entre Índices de Costo de Vida, Renta y Poder Adquisitivo -->
+    <div class="mb-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="bi bi-graph-up me-2"></i>Gráfico 1: Relación entre Índices de Costo de Vida, Renta y Poder Adquisitivo</h5>
+            </div>
+            <div class="card-body">
+                <!-- Imagen del Gráfico 1 -->
+                <img src="/static/images/1.jpg" class="img-fluid mb-3" alt="Relación entre Índices de Costo de Vida, Renta y Poder Adquisitivo">
+                
+                <!-- Interpretación Estadística -->
+                <div class="mt-4">
+                    <h6 class="text-primary fw-bold">Interpretación Estadística:</h6>
+                    <p>
+                        Este gráfico ubica a cada país según el costo de vida (eje X) y el índice de renta (eje Y), mientras que el tamaño de las burbujas refleja el poder adquisitivo local. Se observa que Suiza y Singapur combinan alto costo de vida, renta elevada y gran poder adquisitivo. Por el contrario, algunos países con alto costo de vida no tienen un poder adquisitivo acorde, evidenciando desequilibrios.
+                    </p>
+                </div>
+                
+                <!-- Conclusiones -->
+                <div class="mt-3">
+                    <h6 class="text-success fw-bold">Conclusiones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Países como Suiza y Singapur son mercados premium: alto costo, alto poder adquisitivo.</li>
+                        <li class="list-group-item border-0 ps-0">Países con desajuste (ej. Barbados) requieren enfoques más económicos.</li>
+                    </ul>
+                </div>
+                
+                <!-- Recomendaciones -->
+                <div class="mt-3">
+                    <h6 class="text-info fw-bold">Recomendaciones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">En mercados premium (Suiza, Singapur), introducir productos y servicios de lujo.</li>
+                        <li class="list-group-item border-0 ps-0">En mercados con desequilibrios, ajustar el portafolio a productos más accesibles o servicios de menor costo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gráfico 2: Índice de Renta por Categorías de Costo de Vida (Violin Plot) -->
+    <div class="mb-5">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="bi bi-graph-up-arrow me-2"></i>Gráfico 2: Índice de Renta por Categorías de Costo de Vida (Violin Plot)</h5>
+            </div>
+            <div class="card-body">
+                <!-- Imagen del Gráfico 2 -->
+                <img src="/static/images/2.jpg" class="img-fluid mb-3" alt="Índice de Renta por Categorías de Costo de Vida (Violin Plot)">
+                
+                <!-- Interpretación Estadística -->
+                <div class="mt-4">
+                    <h6 class="text-primary fw-bold">Interpretación Estadística:</h6>
+                    <p>
+                        La distribución del índice de renta varía según el costo de vida. En la categoría "Alto", la mediana es consistente y con menor dispersión, lo que refleja estabilidad. En la categoría "Medio", se observa mayor variabilidad, indicando riesgos y oportunidades.
+                    </p>
+                </div>
+                
+                <!-- Conclusiones -->
+                <div class="mt-3">
+                    <h6 class="text-success fw-bold">Conclusiones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Mercados con costo de vida alto ofrecen mayor predictibilidad en la renta.</li>
+                        <li class="list-group-item border-0 ps-0">Mercados medios presentan mayor dispersión, lo que implica riesgos e interesantes oportunidades.</li>
+                    </ul>
+                </div>
+                
+                <!-- Recomendaciones -->
+                <div class="mt-3">
+                    <h6 class="text-info fw-bold">Recomendaciones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Mercados de costo alto: Optar por inversiones estables y arrendamientos a largo plazo para garantizar ingresos consistentes.</li>
+                        <li class="list-group-item border-0 ps-0">Mercados de costo medio: Implementar contratos flexibles de renta y adaptar las estrategias según la demanda local para aprovechar las oportunidades y mitigar riesgos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gráfico 3: Índice de Costo de Vida por País (Gráfico de Pastel) -->
+    <div class="mb-5">
+        <div class="card">
+            <div class="card-header bg-warning text-white">
+                <h5 class="mb-0"><i class="bi bi-pie-chart-fill me-2"></i>Gráfico 3: Índice de Costo de Vida por País (Gráfico de Pastel)</h5>
+            </div>
+            <div class="card-body">
+                <!-- Embed del Gráfico 3 -->
+                <div class="mb-3">
+                    <iframe title="Distribución del Costo de Vida en los 5 Países Más Caros (2024)" aria-label="Pie Chart" id="datawrapper-chart-d0p8D" src="https://datawrapper.dwcdn.net/d0p8D/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="518" data-external="1"></iframe>
+                    <script type="text/javascript">
+                        !function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
+                    </script>
+                </div>
+                
+                <!-- Interpretación Estadística -->
+                <div class="mt-4">
+                    <h6 class="text-primary fw-bold">Interpretación Estadística:</h6>
+                    <p>
+                        El gráfico muestra cómo se distribuye el índice de costo de vida entre los cinco países más caros. Suiza lidera claramente, seguida por Bahamas e Islandia, que también tienen contribuciones notables. Singapur y Barbados representan proporciones más pequeñas, siendo Barbados el menos dominante.
+                    </p>
+                </div>
+                
+                <!-- Conclusiones -->
+                <div class="mt-3">
+                    <h6 class="text-success fw-bold">Conclusiones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Suiza domina ampliamente el segmento de mercados premium, reafirmando su posicionamiento como líder en costo de vida.</li>
+                        <li class="list-group-item border-0 ps-0">Bahamas e Islandia, con una presencia importante, son mercados relevantes dentro del segmento de lujo.</li>
+                        <li class="list-group-item border-0 ps-0">Singapur y Barbados, aunque incluidos en este grupo, tienen menor impacto, lo que podría sugerir mayor flexibilidad para estrategias de posicionamiento.</li>
+                    </ul>
+                </div>
+                
+                <!-- Recomendaciones -->
+                <div class="mt-3">
+                    <h6 class="text-info fw-bold">Recomendaciones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Suiza: Concentrar esfuerzos en productos y servicios de lujo altamente exclusivos, maximizando el valor percibido.</li>
+                        <li class="list-group-item border-0 ps-0">Bahamas e Islandia: Ofrecer opciones premium, pero explorando oportunidades para diversificar la oferta dentro del segmento de lujo.</li>
+                        <li class="list-group-item border-0 ps-0">Singapur y Barbados: Incorporar estrategias híbridas que combinen bienes de lujo con alternativas más accesibles para captar una base de consumidores más amplia.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gráfico 4: Distribución del Índice de Costo de Vida (Histograma) -->
+    <div class="mb-5">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="bi bi-bar-chart-fill me-2"></i>Gráfico 4: Distribución del Índice de Costo de Vida (Histograma)</h5>
+            </div>
+            <div class="card-body">
+                <!-- Imagen del Gráfico 4 -->
+                <img src="/static/images/4.png" class="img-fluid mb-3" alt="Distribución del Índice de Costo de Vida (Histograma)">
+                
+                <!-- Interpretación Estadística -->
+                <div class="mt-4">
+                    <h6 class="text-primary fw-bold">Interpretación Estadística:</h6>
+                    <p>
+                        El histograma muestra que la mayoría de los países tienen un índice de costo de vida cercano a la media global (43.56). Hay pocos países en el extremo superior, con índices superiores a 80, lo que los posiciona como mercados exclusivos y atípicos.
+                    </p>
+                </div>
+                
+                <!-- Conclusiones -->
+                <div class="mt-3">
+                    <h6 class="text-success fw-bold">Conclusiones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">La mayoría de los países se agrupan en un rango moderado de costo de vida, lo que representa la mayor parte del mercado global.</li>
+                        <li class="list-group-item border-0 ps-0">Los países con índices de costo de vida altos son minoritarios, pero representan nichos exclusivos que pueden ser explotados de manera estratégica.</li>
+                    </ul>
+                </div>
+                
+                <!-- Recomendaciones -->
+                <div class="mt-3">
+                    <h6 class="text-info fw-bold">Recomendaciones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Mercados moderados: Enfocar productos masivos y accesibles que puedan satisfacer las necesidades de países en torno a la media.</li>
+                        <li class="list-group-item border-0 ps-0">Mercados exclusivos: Diseñar estrategias específicas para productos premium o de lujo, dirigidos a los pocos países con costos de vida excepcionalmente altos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gráfico 5: Relación entre Índice de Costo de Vida e Índice de Renta (Dispersión) -->
+    <div class="mb-5">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0"><i class="bi bi-scatter-chart me-2"></i>Gráfico 5: Relación entre Índice de Costo de Vida e Índice de Renta (Dispersión)</h5>
+            </div>
+            <div class="card-body">
+                <!-- Imagen del Gráfico 5 -->
+                <img src="/static/images/5.png" class="img-fluid mb-3" alt="Relación entre Índice de Costo de Vida e Índice de Renta (Dispersión)">
+                
+                <!-- Interpretación Estadística -->
+                <div class="mt-4">
+                    <h6 class="text-primary fw-bold">Interpretación Estadística:</h6>
+                    <p>
+                        El gráfico muestra una correlación positiva moderada entre el índice de costo de vida y el índice de renta. Países como Suiza y Hong Kong (China) están significativamente por encima de ambas medias, representando mercados premium. Por otro lado, países como Portugal y Costa Rica están por debajo de ambos indicadores, indicando mercados más accesibles y con costos operativos bajos.
+                    </p>
+                </div>
+                
+                <!-- Conclusiones -->
+                <div class="mt-3">
+                    <h6 class="text-success fw-bold">Conclusiones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Los mercados premium (alto costo de vida y alta renta) son ideales para productos de lujo con márgenes elevados.</li>
+                        <li class="list-group-item border-0 ps-0">Los mercados menos costosos (como Portugal y Costa Rica) ofrecen oportunidades para optimizar costos operativos y expandir economías de escala.</li>
+                    </ul>
+                </div>
+                
+                <!-- Recomendaciones -->
+                <div class="mt-3">
+                    <h6 class="text-info fw-bold">Recomendaciones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Mercados premium: Introducir y posicionar productos de lujo que maximicen los márgenes de ganancia.</li>
+                        <li class="list-group-item border-0 ps-0">Mercados de bajo costo: Enfocarse en expandir operaciones logísticas y de manufactura para aprovechar los costos reducidos y fortalecer la competitividad en mercados globales.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gráfico 6: Comparación de la Variabilidad entre el Índice de Costo de Vida y el Índice de Renta (Boxplot) -->
+    <div class="mb-5">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0"><i class="bi bi-box-seam me-2"></i>Gráfico 6: Comparación de la Variabilidad entre el Índice de Costo de Vida y el Índice de Renta (Boxplot)</h5>
+            </div>
+            <div class="card-body">
+                <!-- Imagen del Gráfico 6 -->
+                <img src="/static/images/6.png" class="img-fluid mb-3" alt="Comparación de la Variabilidad entre el Índice de Costo de Vida y el Índice de Renta (Boxplot)">
+                
+                <!-- Interpretación Estadística -->
+                <div class="mt-4">
+                    <h6 class="text-primary fw-bold">Interpretación Estadística:</h6>
+                    <p>
+                        El boxplot indica que el costo de vida tiene una distribución más consistente y una menor cantidad de valores atípicos en comparación con la renta, que presenta mayor dispersión y varios outliers. Esto sugiere que el costo de vida es más predecible a nivel global, mientras que la renta varía significativamente entre países.
+                    </p>
+                </div>
+                
+                <!-- Conclusiones -->
+                <div class="mt-3">
+                    <h6 class="text-success fw-bold">Conclusiones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">El costo de vida muestra estabilidad, lo que facilita la planificación de estrategias de negocio a mediano y largo plazo.</li>
+                        <li class="list-group-item border-0 ps-0">La renta, al ser más dispersa y contener valores extremos, requiere un análisis detallado y localizado para mitigar riesgos.</li>
+                    </ul>
+                </div>
+                
+                <!-- Recomendaciones -->
+                <div class="mt-3">
+                    <h6 class="text-info fw-bold">Recomendaciones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Costo de vida: Fomentar inversiones en mercados con menor dispersión para asegurar estabilidad y predictibilidad en las operaciones.</li>
+                        <li class="list-group-item border-0 ps-0">Índice de renta: Antes de invertir en bienes raíces, realizar estudios de mercado específicos en países con alta variabilidad para ajustar la oferta a las condiciones locales.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gráfico 7: Top 10 Países con Mayor Índice de Costo de Vida (Barras Horizontales) -->
+    <div class="mb-5">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0"><i class="bi bi-bar-chart-line me-2"></i>Gráfico 7: Top 10 Países con Mayor Índice de Costo de Vida (Barras Horizontales)</h5>
+            </div>
+            <div class="card-body">
+                <!-- Embed del Gráfico 7 -->
+                <div class="mb-3">
+                    <iframe title="Top 10 Países con Mayor Índice de Costo de Vida (2024)" aria-label="Bar Chart" id="datawrapper-chart-Q4iHs" src="https://datawrapper.dwcdn.net/Q4iHs/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="366" data-external="1"></iframe>
+                    <script type="text/javascript">
+                        !function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
+                    </script>
+                </div>
+                
+                <!-- Interpretación Estadística -->
+                <div class="mt-4">
+                    <h6 class="text-primary fw-bold">Interpretación Estadística:</h6>
+                    <p>
+                        El gráfico muestra que Suiza lidera significativamente con un índice de 101.1, seguida por Bahamas (85) e Islandia (83). Otros países como Estados Unidos (70.4) y Australia (70.2) tienen valores más cercanos entre sí pero aún superiores al promedio global, lo que los sitúa dentro de los mercados más costosos del mundo.
+                    </p>
+                </div>
+                
+                <!-- Conclusiones -->
+                <div class="mt-3">
+                    <h6 class="text-success fw-bold">Conclusiones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Los 10 países con mayor índice de costo de vida representan mercados ideales para productos y servicios de alta gama.</li>
+                        <li class="list-group-item border-0 ps-0">La diversidad de países en este grupo (e.g., Suiza, EE.UU., Australia) permite una segmentación más específica basada en los valores del índice y las características culturales.</li>
+                    </ul>
+                </div>
+                
+                <!-- Recomendaciones -->
+                <div class="mt-3">
+                    <h6 class="text-info fw-bold">Recomendaciones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Productos premium: Orientar bienes y servicios exclusivos hacia estos mercados, especialmente en países con índices superiores como Suiza y Bahamas.</li>
+                        <li class="list-group-item border-0 ps-0">Segmentación: En mercados como Estados Unidos y Australia, introducir gamas medias-altas que equilibren calidad y precio para atraer a un público más amplio y diverso.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gráfico 8: Comparación de Índices entre Países con Mayor Costo de Vida (Líneas Múltiples) -->
+    <div class="mb-5">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="bi bi-diagram-3-fill me-2"></i>Gráfico 8: Comparación de Índices entre Países con Mayor Costo de Vida (Líneas Múltiples)</h5>
+            </div>
+            <div class="card-body">
+                <!-- Imagen del Gráfico 8 -->
+                <img src="/static/images/8.jpg" class="img-fluid mb-3" alt="Comparación de Índices entre Países con Mayor Costo de Vida (Líneas Múltiples)">
+                
+                <!-- Interpretación Estadística -->
+                <div class="mt-4">
+                    <h6 class="text-primary fw-bold">Interpretación Estadística:</h6>
+                    <p>
+                        El gráfico muestra la comparación de tres índices (costo de vida, renta y canasta básica) en países con alto costo de vida. Singapur destaca por su índice de renta elevado, mientras que Suiza mantiene una estabilidad notable en el índice de canasta básica. Los demás países presentan distribuciones más equilibradas entre los tres indicadores.
+                    </p>
+                </div>
+                
+                <!-- Conclusiones -->
+                <div class="mt-3">
+                    <h6 class="text-success fw-bold">Conclusiones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Cada país premium tiene un perfil distintivo en sus índices, lo que permite identificar oportunidades específicas en cada mercado.</li>
+                        <li class="list-group-item border-0 ps-0">Singapur resalta en el sector de renta, mientras que Suiza domina en estabilidad y consumo relacionado con la canasta básica.</li>
+                    </ul>
+                </div>
+                
+                <!-- Recomendaciones -->
+                <div class="mt-3">
+                    <h6 class="text-info fw-bold">Recomendaciones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Singapur: Enfocar estrategias en bienes y servicios relacionados con el mercado inmobiliario y la alta renta.</li>
+                        <li class="list-group-item border-0 ps-0">Suiza: Priorizar productos premium relacionados con la alimentación y bienes de consumo que complementen su alto costo de vida.</li>
+                        <li class="list-group-item border-0 ps-0">Otros países (Bahamas, Islandia, Barbados): Adaptar estrategias diversificadas según las necesidades locales y sus combinaciones de índices.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gráfico 9: Mapa de Calor (Heatmap) de Comparación de Índices por País -->
+    <div class="mb-5">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="bi bi-heatmap me-2"></i>Gráfico 9: Mapa de Calor (Heatmap) de Comparación de Índices por País</h5>
+            </div>
+            <div class="card-body">
+                <!-- Imagen del Gráfico 9 -->
+                <img src="/static/images/9.png" class="img-fluid mb-3" alt="Mapa de Calor (Heatmap) de Comparación de Índices por País">
+                
+                <!-- Interpretación Estadística -->
+                <div class="mt-4">
+                    <h6 class="text-primary fw-bold">Interpretación Estadística:</h6>
+                    <p>
+                        El mapa de calor resalta diferencias clave en la comparación de índices por país. Suiza y Singapur lideran como mercados multidimensionales con altos valores en varios índices, mientras que países como Barbados o Bahamas muestran fortalezas más específicas en ciertos indicadores.
+                    </p>
+                </div>
+                
+                <!-- Conclusiones -->
+                <div class="mt-3">
+                    <h6 class="text-success fw-bold">Conclusiones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Mercados integrales: Países como Suiza y Singapur, con altos valores en múltiples índices, representan oportunidades amplias para estrategias diversificadas.</li>
+                        <li class="list-group-item border-0 ps-0">Mercados especializados: Países con fortalezas en índices puntuales, como Barbados (renta) o Bahamas (costo de vida), requieren enfoques más especializados para maximizar su potencial.</li>
+                    </ul>
+                </div>
+                
+                <!-- Recomendaciones -->
+                <div class="mt-3">
+                    <h6 class="text-info fw-bold">Recomendaciones:</h6>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-0 ps-0">Mercados multidimensionales: Invertir en estrategias diversificadas que abarcan diferentes segmentos, como bienes de consumo, servicios premium y sectores inmobiliarios.</li>
+                        <li class="list-group-item border-0 ps-0">Mercados especializados: Diseñar ofertas centradas en la fortaleza específica de cada país. Por ejemplo, en Barbados, enfocar en bienes o servicios relacionados con su alto índice de renta.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Botones de Navegación -->
+<section class="text-center mb-5">
+    <a href="/diccionario" class="btn btn-outline-secondary btn-lg me-3"><i class="bi bi-arrow-left-circle me-2"></i>Anterior: Diccionario de Datos</a>
+    <a href="/implementacion" class="btn btn-outline-primary btn-lg"><i class="bi bi-arrow-right-circle me-2"></i>Siguiente: Implementación Técnica y Uso de Herramientas</a>
+</section>
+{% endblock %}
