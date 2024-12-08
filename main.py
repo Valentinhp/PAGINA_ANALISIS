@@ -1,8 +1,10 @@
 # main.py
+import os
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+import uvicorn
 
 app = FastAPI()
 
@@ -61,3 +63,9 @@ async def read_conclusiones(request: Request):
 @app.get("/anexo", response_class=HTMLResponse)
 async def read_anexo(request: Request):
     return templates.TemplateResponse("anexo.html", {"request": request})
+
+
+# Configuración para ejecutar Uvicorn en Render
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Render usa la variable de entorno PORT
+    uvicorn.run(app, host="0.0.0.0", port=port)
