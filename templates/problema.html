@@ -4,34 +4,42 @@
 {% block title %}Definición del Problema - Informe de Análisis de Mercados Internacionales{% endblock %}
 
 {% block content %}
-<!-- Definición del Problema y Objetivos Empresariales -->
+<!-- Sección principal para definir el problema y los objetivos -->
 <section class="mb-5">
+    <!-- Título centrado para la sección -->
     <h2 class="mb-4 text-center">Definición del Problema y Objetivos Empresariales</h2>
     
-    <!-- Área de Oportunidad a Abordar -->
+    <!-- Subsección: Área de oportunidad -->
     <div class="mb-4">
+        <!-- Título con ícono -->
         <h3 class="mb-3"><i class="bi bi-lightbulb-fill me-2 text-warning"></i>Área de Oportunidad a Abordar</h3>
+        <!-- Descripción del problema empresarial -->
         <p>
             La empresa busca optimizar su portafolio de inversiones y productos en distintos mercados internacionales. Identificar dónde y cómo ingresar, ya sea con productos de alta gama en mercados premium o con estrategias de reducción de costos en mercados más moderados, es esencial para maximizar el retorno.
         </p>
     </div>
     
-    <!-- Objetivos Empresariales -->
+    <!-- Subsección: Objetivos empresariales -->
     <div class="mb-4">
+        <!-- Título con ícono -->
         <h3 class="mb-3"><i class="bi bi-flag-fill me-2 text-primary"></i>Objetivos Empresariales</h3>
+        <!-- Lista ordenada de objetivos -->
         <ol class="list-group list-group-numbered">
+            <!-- Primer objetivo -->
             <li class="list-group-item d-flex align-items-start">
                 <i class="bi bi-graph-up-arrow me-2 text-success"></i>
                 <div>
                     <strong>Identificar Mercados Premium:</strong> Encontrar países con altos índices de costo de vida y poder adquisitivo, adecuados para la venta de productos de lujo.
                 </div>
             </li>
+            <!-- Segundo objetivo -->
             <li class="list-group-item d-flex align-items-start">
                 <i class="bi bi-binoculars me-2 text-success"></i>
                 <div>
                     <strong>Detectar Mercados con Costos Moderados:</strong> Hallar países cuyo costo de vida y renta estén cerca de la media global, facilitando la expansión operativa.
                 </div>
             </li>
+            <!-- Tercer objetivo -->
             <li class="list-group-item d-flex align-items-start">
                 <i class="bi bi-lightbulb me-2 text-success"></i>
                 <div>
@@ -41,10 +49,13 @@
         </ol>
     </div>
     
-    <!-- KPIs Definidos -->
+    <!-- Subsección: KPIs definidos -->
     <div>
+        <!-- Título con ícono -->
         <h3 class="mb-3"><i class="bi bi-bar-chart-fill me-2 text-info"></i>KPIs Definidos</h3>
+        <!-- Tabla para mostrar los KPIs -->
         <table class="table table-striped">
+            <!-- Encabezado de la tabla -->
             <thead class="table-dark">
                 <tr>
                     <th scope="col">Variable</th>
@@ -52,6 +63,7 @@
                     <th scope="col">Tipo</th>
                 </tr>
             </thead>
+            <!-- Cuerpo de la tabla -->
             <tbody>
                 <tr>
                     <td>Cost of Living Index</td>
@@ -80,15 +92,22 @@
                 </tr>
             </tbody>
         </table>
+        <!-- Explicación sobre cómo los KPIs se relacionan con la estrategia -->
         <p>
             Estos KPIs se enlazan directamente con la estrategia corporativa, permitiendo segmentar mercados y determinar dónde y cómo posicionar los productos.
         </p>
     </div>
 </section>
 
-<!-- Botones de Navegación -->
+<!-- Navegación entre secciones -->
 <section class="text-center">
-    <a href="/introduccion" class="btn btn-outline-secondary btn-lg me-3"><i class="bi bi-arrow-left-circle me-2"></i>Anterior: Introducción</a>
-    <a href="/preparacion" class="btn btn-outline-primary btn-lg"><i class="bi bi-arrow-right-circle me-2"></i>Siguiente: Selección y Preparación de Datos</a>
+    <!-- Botón para volver a la introducción -->
+    <a href="/introduccion" class="btn btn-outline-secondary btn-lg me-3">
+        <i class="bi bi-arrow-left-circle me-2"></i>Anterior: Introducción
+    </a>
+    <!-- Botón para avanzar a la sección de preparación de datos -->
+    <a href="/preparacion" class="btn btn-outline-primary btn-lg">
+        <i class="bi bi-arrow-right-circle me-2"></i>Siguiente: Selección y Preparación de Datos
+    </a>
 </section>
 {% endblock %}

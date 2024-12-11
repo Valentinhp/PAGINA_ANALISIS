@@ -1,23 +1,28 @@
 <!-- templates/index.html -->
 {% extends "base.html" %}
 
-{% block title %}Inicio - Informe de Visualizacion de Mercados Internacionales{% endblock %}
+{% block title %}Inicio - Informe de Visualización de Mercados Internacionales{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
+<!-- Sección Hero principal de bienvenida -->
 <section class="hero mb-5">
     <div class="hero-overlay">
+        <!-- Título del hero -->
         <h1 class="display-4">Bienvenido al Informe de Análisis de Mercados Internacionales</h1>
+        <!-- Subtítulo o descripción breve -->
         <p class="lead">Descubre oportunidades estratégicas basadas en índices económicos clave.</p>
+        <!-- Botón para explorar el informe -->
         <a href="/introduccion" class="btn btn-light btn-lg mt-3">Explorar el Informe</a>
     </div>
 </section>
 
-<!-- Introducción Breve -->
+<!-- Introducción breve al informe -->
 <section class="mb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <!-- Título centrado para la introducción -->
             <h2 class="text-center mb-4">Acerca de Este Informe</h2>
+            <!-- Descripción general sobre el propósito del informe -->
             <p class="text-center">
                 Este análisis integral evalúa mercados internacionales utilizando índices como el costo de vida, renta y poder adquisitivo. Nuestro objetivo es identificar áreas de oportunidad tanto en mercados premium como en aquellos con costos moderados, proporcionando recomendaciones estratégicas para inversiones empresariales efectivas.
             </p>
@@ -25,14 +30,16 @@
     </div>
 </section>
 
-<!-- Índice del Informe con Tarjetas -->
+<!-- Índice del informe representado con tarjetas -->
 <section>
+    <!-- Título de la sección del índice -->
     <h2 class="mb-4 text-center">Índice del Informe</h2>
     <div class="row g-4 justify-content-center">
-        <!-- Introducción -->
+        <!-- Tarjeta para la Introducción -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
+                    <!-- Ícono representativo -->
                     <i class="bi bi-info-circle-fill card-icon"></i>
                     <h5 class="card-title">1. Introducción</h5>
                     <p class="card-text">Propósito del análisis y contexto empresarial.</p>
@@ -42,10 +49,11 @@
                 </div>
             </div>
         </div>
-        <!-- Definición del Problema -->
+        <!-- Tarjeta para la Definición del Problema -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
+                    <!-- Ícono representativo -->
                     <i class="bi bi-exclamation-triangle-fill card-icon"></i>
                     <h5 class="card-title">2. Definición del Problema</h5>
                     <p class="card-text">Identificación de áreas de oportunidad y objetivos empresariales.</p>
@@ -55,11 +63,11 @@
                 </div>
             </div>
         </div>
-        <!-- Selección y Preparación de Datos -->
+        <!-- Tarjeta para la Selección y Preparación de Datos -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
-                    <!-- Aquí se cambió el ícono a uno válido de Bootstrap Icons -->
+                    <!-- Ícono representativo -->
                     <i class="bi bi-database-fill card-icon"></i>
                     <h5 class="card-title">3. Selección y Preparación de Datos</h5>
                     <p class="card-text">Fuentes de datos y procesos de limpieza y transformación.</p>
@@ -69,10 +77,11 @@
                 </div>
             </div>
         </div>
-        <!-- Diccionario de Datos -->
+        <!-- Tarjeta para el Diccionario de Datos -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
+                    <!-- Ícono representativo -->
                     <i class="bi bi-journal-text card-icon"></i>
                     <h5 class="card-title">4. Diccionario de Datos</h5>
                     <p class="card-text">Explicación de las variables clave del análisis.</p>
@@ -82,10 +91,11 @@
                 </div>
             </div>
         </div>
-        <!-- Narración de Historias con Datos -->
+        <!-- Tarjeta para Narración de Historias con Datos -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
+                    <!-- Ícono representativo -->
                     <i class="bi bi-bar-chart-fill card-icon"></i>
                     <h5 class="card-title">5. Narración con Datos</h5>
                     <p class="card-text">Visualización e interpretación de gráficos relevantes.</p>
@@ -95,10 +105,11 @@
                 </div>
             </div>
         </div>
-        <!-- Implementación Técnica -->
+        <!-- Tarjeta para la Implementación Técnica -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
+                    <!-- Ícono representativo -->
                     <i class="bi bi-tools card-icon"></i>
                     <h5 class="card-title">6. Implementación Técnica</h5>
                     <p class="card-text">Herramientas y metodología usadas.</p>
@@ -108,10 +119,11 @@
                 </div>
             </div>
         </div>
-        <!-- Originalidad y Creatividad -->
+        <!-- Tarjeta para Originalidad y Creatividad -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
+                    <!-- Ícono representativo -->
                     <i class="bi bi-lightbulb-fill card-icon"></i>
                     <h5 class="card-title">7. Originalidad y Creatividad</h5>
                     <p class="card-text">Valor añadido y enfoque innovador.</p>
@@ -121,10 +133,11 @@
                 </div>
             </div>
         </div>
-        <!-- Conclusiones Generales -->
+        <!-- Tarjeta para Conclusiones Generales -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
+                    <!-- Ícono representativo -->
                     <i class="bi bi-clipboard-data card-icon"></i>
                     <h5 class="card-title">8. Conclusiones Generales</h5>
                     <p class="card-text">Resumen de hallazgos y recomendaciones prácticas.</p>
@@ -134,10 +147,11 @@
                 </div>
             </div>
         </div>
-        <!-- Anexo de Códigos -->
+        <!-- Tarjeta para Anexo de Códigos -->
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
                 <div class="card-body text-center">
+                    <!-- Ícono representativo -->
                     <i class="bi bi-code-slash card-icon"></i>
                     <h5 class="card-title">9. Anexo de Códigos</h5>
                     <p class="card-text">Código fuente usado para generar gráficos y procesar datos.</p>
@@ -150,7 +164,7 @@
     </div>
 </section>
 
-<!-- Call to Action General -->
+<!-- Llamado a la acción con botones de navegación -->
 <section class="text-center mt-5">
     <h3 class="mb-4">Explora Todo el Informe</h3>
     <a href="/introduccion" class="btn btn-outline-primary btn-lg me-3">Introducción</a>
